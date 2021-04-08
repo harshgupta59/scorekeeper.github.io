@@ -9,6 +9,11 @@ var numlimit=document.querySelector("input");
 var winningscoredisplay=document.querySelector("#lim");
 var winningscore=5;
 var resetgame=document.getElementById("reset");
+var drk=document.getElementById('dark');
+
+drk.addEventListener("click",function(){
+    document.body.classList.toggle('dark-mode');
+});
 
 p1.addEventListener("click",function(){
     if(!gameover){
@@ -20,6 +25,7 @@ p1.addEventListener("click",function(){
     }
     p1display.innerHTML=p1score;
 });
+
 p2.addEventListener("click",function(){
     if(!gameover){
         p2score++;
@@ -30,11 +36,12 @@ p2.addEventListener("click",function(){
     }
     p2display.innerHTML=p2score;
 });
+
 resetgame.addEventListener("click",function(){
     reset();
 });
+
 function reset(){
-   
     p1display.classList.remove("winner");
     p2display.classList.remove("winner");
     gameover=false;
@@ -43,6 +50,7 @@ function reset(){
     p1display.innerHTML=0;
     p2display.innerHTML=0;
 }
+
 numlimit.addEventListener("change",function(){
      winningscoredisplay.textContent=numlimit.value;
      winningscore=Number(numlimit.value);
